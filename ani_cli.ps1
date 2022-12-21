@@ -100,7 +100,7 @@ function get_final_link($link){
     $header=@{
         'x-requested-with' = 'XMLHttpRequest'
     }
-    $response= Invoke-WebRequest -Uri "https://gogohd.net/encrypt-ajax.php?id=$full_payload" -Headers $header
+    $response= Invoke-WebRequest -Uri "https://gogohd.pro/encrypt-ajax.php?id=$full_payload" -Headers $header
     $x = $response.Content | ConvertFrom-Json
 
     $link = (aes_decrypt "54674138327930866480207815084989" $x[0].data).Trim("\\\\")

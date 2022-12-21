@@ -86,7 +86,7 @@ function get_quality($link){
 
 function get_final_link($link){
     $response = Invoke-WebRequest -Uri $link
-    $gogo_link = "https:" + (get_group 'data-video=\"(//gogohd.net/streaming.php?.*)\" >' $response.Content)
+    $gogo_link = "https:" + (get_group 'data-video=\"(//gogohd.pro/streaming.php?.*)\" >' $response.Content)
     $gogo_id = get_group 'id=(.*)\&' $gogo_link
     $response = Invoke-WebRequest -Uri $gogo_link
     $crypto_data = get_group 'data-value=\"(.*)\"' $response.Content
